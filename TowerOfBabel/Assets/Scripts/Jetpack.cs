@@ -1,40 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Jetpack : MonoBehaviour
 {
-    #region Properties
-    public float Energy { get; set; }
+    public enum Direction
+    {
+        Left,
+        Right
+    }
 
+    #region Properties
+    public float Energy
+    {
+        get
+        {
+            return _energy;
+        }
+        set
+        {
+            _energy = Mathf.Clamp(value, 0, _maxEnergy);
+        }
+    }
+    public bool Flying { get; set; }
     #endregion
 
-    #region Fields
-    [SerializeField] private Rigidbody _target;
+    #region Fields							     
+    private Rigidbody2D _targetRB;
+    [SerializeField] private float _energy;
     [SerializeField] private float _maxEnergy;
     [SerializeField] private float _energyFlyingRatio;
     [SerializeField] private float _energyRegenerationRatio;
     [SerializeField] private float _horizontalForce;
     [SerializeField] private float _flyForce;
 
-    private bool _flying = false;
-
     #endregion
 
     #region Unity Callbacks
+    private void Awake()
+    {
+        _targetRB = GetComponent<Rigidbody2D>();
+    }
     void Start()
     {
         Energy = _maxEnergy;
-
     }
 
     void FixedUpdate()
     {
-        if (_flying)
-        {
+        if (Flying)
             DoFly();
-        }
+
+        //Le quitamos el signo a la velocidad si es negativa.
+        //Luego si es menor de 0.1, consideramos que estamos parados y cargamos
+        if (Mathf.Abs(_targetRB.velocity.y) < 0.1f)
+            Regenerate();
     }
 
     #endregion
@@ -42,53 +62,46 @@ public class Jetpack : MonoBehaviour
     #region Public Methods
     public void FlyUp()
     {
-        _flying = true;
-
+        Flying = true;
     }
-
     public void StopFlying()
     {
-        _flying = false;
-
+        Flying = false;
     }
-
 
     public void Regenerate()
     {
-        Energy += _energyRegenerationRatio * Time.fixedDeltaTime;
-        if (Energy > _maxEnergy)
-            Energy = _maxEnergy;
+        Energy += _energyRegenerationRatio;
     }
 
-    public void RegenerateExtra(float energy)
+    public void AddEnergy(float energy)
     {
         Energy += energy;
-        if (Energy > _maxEnergy)
-            Energy = _maxEnergy;
-
-        if (Energy < 0)
-            Energy = 0;
     }
 
-    public void FlyMovement(bool leftMovement)
+    public void FlyHorizontal(Direction flyDirection)
     {
-        if (leftMovement)
-            _target.AddForce(Vector2.left * _horizontalForce);
+        if (!Flying)
+            return;
 
+        if (flyDirection == Direction.Left)
+            _targetRB.AddForce(Vector2.left * _horizontalForce);
         else
-            _target.AddForce(Vector2.right * _horizontalForce);
-
+            _targetRB.AddForce(Vector2.right * _horizontalForce);
 
     }
-
     #endregion
 
     #region Private Methods
     private void DoFly()
     {
-        _target.AddForce(Vector2.up * _flyForce);
-        Energy -= _energyFlyingRatio * Time.fixedDeltaTime;
+        if (Energy > 0)
+        {
+            _targetRB.AddForce(Vector2.up * _flyForce);
+            Energy -= _energyFlyingRatio;
+        }
+        else
+            Flying = false;
     }
-
-    # endregion
+    #endregion
 }
