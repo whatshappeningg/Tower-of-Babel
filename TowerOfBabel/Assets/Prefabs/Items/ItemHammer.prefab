@@ -73,6 +73,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 443722398290947365, guid: 9efc094d7a39673448e3e7e2143d3ae9, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1517976309502757015}
+    - targetCorrespondingSourceObject: {fileID: 443722398290947365, guid: 9efc094d7a39673448e3e7e2143d3ae9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5798830387555366347}
   m_SourcePrefab: {fileID: 100100000, guid: 9efc094d7a39673448e3e7e2143d3ae9, type: 3}
@@ -81,6 +84,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 443722398290947365, guid: 9efc094d7a39673448e3e7e2143d3ae9, type: 3}
   m_PrefabInstance: {fileID: 2981079600442580175}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1517976309502757015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3420069614754673130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 698c06a9418566c4a9a97bb728f05909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Type>k__BackingField: 3
+  _particles: {fileID: 0}
 --- !u!60 &5798830387555366347
 PolygonCollider2D:
   m_ObjectHideFlags: 0
