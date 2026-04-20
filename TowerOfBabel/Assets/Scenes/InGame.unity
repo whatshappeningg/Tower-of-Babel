@@ -820,9 +820,9 @@ MonoBehaviour:
   _minSpawnTime: 1
   _maxSpawnTime: 5
   _spawnList:
-  - {fileID: 5976196538798291482, guid: feace034808b51a4880074d65a63616b, type: 3}
-  - {fileID: 5976196538798291482, guid: c4dcf2e32a705454cb3130528f26be0e, type: 3}
-  - {fileID: 5976196538798291482, guid: f2f4405afb0e02140aa8716f80087f09, type: 3}
+  - {fileID: 7340071042803246603, guid: feace034808b51a4880074d65a63616b, type: 3}
+  - {fileID: 8125583386539682003, guid: c4dcf2e32a705454cb3130528f26be0e, type: 3}
+  - {fileID: 1517976309502757015, guid: f2f4405afb0e02140aa8716f80087f09, type: 3}
 --- !u!1 &1145229027
 GameObject:
   m_ObjectHideFlags: 0

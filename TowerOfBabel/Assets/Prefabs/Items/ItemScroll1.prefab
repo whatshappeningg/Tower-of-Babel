@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 1
-  _particles: {fileID: 0}
+  _particles: {fileID: 2470857156511459131, guid: a14a9673d41159144b92551ae375f35e, type: 3}
 --- !u!70 &2965062173876817075
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
