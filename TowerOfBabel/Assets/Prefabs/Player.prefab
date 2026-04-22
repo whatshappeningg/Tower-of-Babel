@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 228536580027852894}
   - component: {fileID: 2233835494129546363}
   - component: {fileID: 861258840144267880}
-  - component: {fileID: 289585906200666063}
   - component: {fileID: 3602852818001509484}
   - component: {fileID: 5111434291974523443}
   - component: {fileID: 4268978146945615025}
@@ -51,7 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d516ab483e4f7942ae70adf7e7b99d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jetpack: {fileID: 861258840144267880}
+  _inputController: {fileID: 0}
+  _playerSpeed: 3
 --- !u!114 &861258840144267880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,25 +64,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44c1664435acf04bb8840b194bc020b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputController: {fileID: 0}
   _energy: 0
   _maxEnergy: 100
   _energyFlyingRatio: 0.1
   _energyRegenerationRatio: 0.5
   _horizontalForce: 20
-  _flyForce: 150
---- !u!114 &289585906200666063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5278176142540908472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fc59c6dbc5d5c043bbb5eb4b931138c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _jetpack: {fileID: 861258840144267880}
+  _flyForce: 130
 --- !u!212 &3602852818001509484
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -205,7 +193,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 10
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

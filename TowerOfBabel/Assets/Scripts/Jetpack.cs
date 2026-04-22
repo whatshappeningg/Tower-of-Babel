@@ -25,7 +25,8 @@ public class Jetpack : MonoBehaviour
     public bool Flying { get; set; }
     #endregion
 
-    #region Fields							     
+    #region Fields		
+    [SerializeField] private InputController _inputController;
     private Rigidbody2D _targetRB;
     [SerializeField] private float _energy;
     [SerializeField] private float _maxEnergy;
@@ -48,7 +49,7 @@ public class Jetpack : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Flying)
+        if (_inputController.IsFlying)
             DoFly();
 
         //Le quitamos el signo a la velocidad si es negativa.
@@ -81,9 +82,6 @@ public class Jetpack : MonoBehaviour
 
     public void FlyHorizontal(Direction flyDirection)
     {
-        if (!Flying)
-            return;
-
         if (flyDirection == Direction.Left)
             _targetRB.AddForce(Vector2.left * _horizontalForce);
         else
