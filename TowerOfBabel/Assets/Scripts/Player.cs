@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     #region Fields
     [SerializeField] private InputController _inputController;
     [SerializeField] private float _playerSpeed = 5f;
+    private bool _onGround;
     private Animator _anim;
     private Rigidbody2D _rb;
     private SpriteRenderer _spriteRenderer;
@@ -29,39 +30,60 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        _anim.SetBool("Flying", _inputController.IsFlying);
-        _anim.SetBool("Walking", _inputController.IsWalking);
+        if (!_onGround)
+            _anim.SetBool("Flying", true);
+        else
+        {
+            _anim.SetBool("Flying", false);
+            _anim.SetBool("Walking", _inputController.IsWalking);
+        }
     }
     #endregion
 
     #region Public Methods
     public void Movement(float direction)
     {
-        direction /= Mathf.Abs(direction);
-        //transform.position += _playerSpeed * direction * Time.deltaTime * Vector3.right;
-        //_rb.AddForce(Vector2.right * _playerSpeed * direction);
         _rb.velocity = new Vector2(direction * _playerSpeed, _rb.velocity.y);
 
-        if (direction < 0)
-            _spriteRenderer.flipX = false;
-        else if (direction > 0)
-            _spriteRenderer.flipX = true;
     }
 
     public void NoMovement()
     {
         _rb.velocity = new Vector2(0, _rb.velocity.y);
     }
+
+    public float ManageDirection(float direction)
+    {
+        direction /= Mathf.Abs(direction);
+        if (direction < 0)
+            _spriteRenderer.flipX = false;
+        else if (direction > 0)
+            _spriteRenderer.flipX = true;
+
+        return direction;
+
+    }
     #endregion
 
     #region Private Methods
     #endregion
 
-    // void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     if (collision.gameObject.CompareTag("Ground"))
-    //     {
-    //         _jetpack.Flying = false;
-    //     }
-    // }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collision Enter");
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
+        {
+            _onGround = true;
+
+        }
+    }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
+        {
+            _onGround = false;
+
+        }
+
+    }
 }

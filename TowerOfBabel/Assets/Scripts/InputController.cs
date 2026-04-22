@@ -25,19 +25,23 @@ public class InputController : MonoBehaviour
     }
     void Update()
     {
-        if (IsFlying)
-        {// Horizontal fly
-            if (Input.GetAxis("Horizontal") < 0)
-                _jetpack.FlyHorizontal(Jetpack.Direction.Left);
+        float direction = _player.ManageDirection(Input.GetAxis("Horizontal"));
+        _player.ManageDirection(Input.GetAxis("Horizontal"));
 
-            else if (Input.GetAxis("Horizontal") > 0)
-                _jetpack.FlyHorizontal(Jetpack.Direction.Right);
-        }
-        else if (Input.GetAxis("Horizontal") != 0)
+        // Horizontal Movement
+        if (Input.GetAxis("Horizontal") != 0)
         {
-            IsWalking = true;
-            _player.Movement(Input.GetAxis("Horizontal"));
+            if (IsFlying)
+            {
+                _jetpack.FlyHorizontal(direction);
 
+            }
+            else
+            {
+                IsWalking = true;
+                _player.Movement(direction);
+
+            }
         }
         else
         {
@@ -45,12 +49,12 @@ public class InputController : MonoBehaviour
             IsWalking = false;
         }
 
-        // Vertical fly
+        // Vertical Movement
         if (Input.GetAxis("Vertical") > 0)
             IsFlying = true;
-
         else
             IsFlying = false;
+
     }
 
     #endregion

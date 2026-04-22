@@ -80,12 +80,9 @@ public class Jetpack : MonoBehaviour
         Energy += energy;
     }
 
-    public void FlyHorizontal(Direction flyDirection)
+    public void FlyHorizontal(float direction)
     {
-        if (flyDirection == Direction.Left)
-            _targetRB.AddForce(Vector2.left * _horizontalForce);
-        else
-            _targetRB.AddForce(Vector2.right * _horizontalForce);
+        _targetRB.AddForce(Vector2.right * _horizontalForce * direction);
 
     }
     #endregion
