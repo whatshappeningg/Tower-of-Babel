@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collision Enter");
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform") && !_inputController.IsFlying)
         {
             _onGround = true;
 

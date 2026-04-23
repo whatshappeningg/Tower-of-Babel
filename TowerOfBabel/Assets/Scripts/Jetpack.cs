@@ -54,8 +54,6 @@ public class Jetpack : MonoBehaviour
         if (_inputController.IsFlying)
             DoFly();
 
-        //Le quitamos el signo a la velocidad si es negativa.
-        //Luego si es menor de 0.1, consideramos que estamos parados y cargamos
         if (_player._onGround)
             Regenerate();
     }
