@@ -1,60 +1,62 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour
 {
     #region Properties
-    public bool IsFlying { get; set; }
-    public bool IsWalking { get; set; }
+    public float Direction { get; set; }
+    public event Action IsFlying;
+    public event Action IsFlyingHorizontal;
+    public event Action IsWalking;
+    public event Action IsMoving;
+    public event Action IsNotMoving;
 
     #endregion
 
     #region Fields
-    [SerializeField] private Jetpack _jetpack;
-    [SerializeField] private Player _player;
-
+    private bool _isFlying;
 
     #endregion
 
     #region Unity Callbacks
     void Start()
     {
-        IsFlying = false;
-        IsWalking = false;
+        _isFlying = false;
     }
     void Update()
     {
-        float direction = _player.ManageDirection(Input.GetAxis("Horizontal"));
-        _player.ManageDirection(Input.GetAxis("Horizontal"));
+        Direction = CalculateDirection(Input.GetAxis("Horizontal"));
 
         // Horizontal Movement
         if (Input.GetAxis("Horizontal") != 0)
         {
-            if (IsFlying)
+            IsMoving?.Invoke();
+
+            if (_isFlying)
             {
-                _jetpack.FlyHorizontal(direction);
+                IsFlyingHorizontal?.Invoke();
 
             }
             else
             {
-                IsWalking = true;
-                _player.Movement(direction);
+                IsWalking?.Invoke();
 
             }
         }
         else
         {
-            _player.NoMovement();
-            IsWalking = false;
+            IsNotMoving?.Invoke();
         }
 
         // Vertical Movement
         if (Input.GetAxis("Vertical") > 0)
-            IsFlying = true;
+        {
+            IsFlying?.Invoke();
+            _isFlying = true;
+        }
         else
-            IsFlying = false;
+            _isFlying = false;
 
         if (Input.GetKeyUp(KeyCode.Escape))
             SceneManager.LoadScene("MainMenu");
@@ -64,10 +66,18 @@ public class InputController : MonoBehaviour
     #endregion
 
     #region Public Methods
-
     #endregion
 
     #region Private Methods
+    private float CalculateDirection(float axis)
+    {
+        if (axis < 0)
+            return -1;
+        else if (axis > 0)
+            return 1;
+        else
+            return 0;
+    }
 
     #endregion
 }

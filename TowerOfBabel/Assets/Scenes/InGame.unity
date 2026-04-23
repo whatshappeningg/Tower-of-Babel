@@ -992,7 +992,7 @@ GameObject:
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1056364105
 Transform:
   m_ObjectHideFlags: 0
@@ -3961,6 +3961,7 @@ GameObject:
   - component: {fileID: 2056445217}
   - component: {fileID: 2056445219}
   - component: {fileID: 2056445220}
+  - component: {fileID: 2056445221}
   m_Layer: 0
   m_Name: InGameController
   m_TagString: Untagged
@@ -4103,6 +4104,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc59c6dbc5d5c043bbb5eb4b931138c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2056445221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056445216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6922ece18570867439845119343e2354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputController: {fileID: 2056445220}
   _jetpack: {fileID: 1633053921}
   _player: {fileID: 1633053927}
 --- !u!1 &2079436987
@@ -4271,14 +4285,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 861258840144267880, guid: e8ea729f5aaa5b1489bc2d4a328c72e7, type: 3}
-      propertyPath: _inputController
-      value: 
-      objectReference: {fileID: 2056445220}
-    - target: {fileID: 2233835494129546363, guid: e8ea729f5aaa5b1489bc2d4a328c72e7, type: 3}
-      propertyPath: _inputController
-      value: 
-      objectReference: {fileID: 2056445220}
     - target: {fileID: 5278176142540908472, guid: e8ea729f5aaa5b1489bc2d4a328c72e7, type: 3}
       propertyPath: m_Name
       value: Player

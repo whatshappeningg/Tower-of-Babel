@@ -8,15 +8,16 @@ using System;
 public class Player : MonoBehaviour
 {
     #region Properties
-    public bool _onGround;
+    public bool IsFlying { get; set; }
+    public event Action OnGround;
     #endregion
 
     #region Fields
-    [SerializeField] private InputController _inputController;
     [SerializeField] private float _playerSpeed = 5f;
     private Animator _anim;
     private Rigidbody2D _rb;
     private SpriteRenderer _spriteRenderer;
+    private bool _onGround;
 
     #endregion
 
@@ -34,8 +35,8 @@ public class Player : MonoBehaviour
             _anim.SetBool("Flying", true);
         else
         {
+            OnGround?.Invoke();
             _anim.SetBool("Flying", false);
-            _anim.SetBool("Walking", _inputController.IsWalking);
         }
     }
     #endregion
@@ -43,18 +44,19 @@ public class Player : MonoBehaviour
     #region Public Methods
     public void Movement(float direction)
     {
+        _anim.SetBool("Walking", true);
         _rb.velocity = new Vector2(direction * _playerSpeed, _rb.velocity.y);
 
     }
 
     public void NoMovement()
     {
+        _anim.SetBool("Walking", false);
         _rb.velocity = new Vector2(0, _rb.velocity.y);
     }
 
     public float ManageDirection(float direction)
     {
-        direction /= Mathf.Abs(direction);
         if (direction < 0)
             _spriteRenderer.flipX = false;
         else if (direction > 0)
@@ -71,10 +73,9 @@ public class Player : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collision Enter");
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform") && !_inputController.IsFlying)
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform") && !IsFlying)
         {
             _onGround = true;
-
         }
     }
     void OnCollisionExit2D(Collision2D collision)

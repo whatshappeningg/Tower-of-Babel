@@ -1,15 +1,8 @@
 using UnityEngine;
-using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Jetpack : MonoBehaviour
 {
-    public enum Direction
-    {
-        Left,
-        Right
-    }
-
     #region Properties
     public float Energy
     {
@@ -26,9 +19,6 @@ public class Jetpack : MonoBehaviour
     #endregion
 
     #region Fields		
-    [SerializeField] private InputController _inputController;
-    [SerializeField] private Player _player;
-
     private Rigidbody2D _targetRB;
     [SerializeField] private float _energy;
     [SerializeField] private float _maxEnergy;
@@ -49,25 +39,23 @@ public class Jetpack : MonoBehaviour
         Energy = _maxEnergy;
     }
 
-    void FixedUpdate()
-    {
-        if (_inputController.IsFlying)
-            DoFly();
-
-        if (_player._onGround)
-            Regenerate();
-    }
-
     #endregion
 
     #region Public Methods
     public void FlyUp()
     {
-        Flying = true;
+        if (Energy > 0)
+        {
+            _targetRB.AddForce(Vector2.up * _flyForce);
+            Energy -= _energyFlyingRatio;
+        }
+        else
+            Flying = false;
     }
-    public void StopFlying()
+    public void FlyHorizontal(float direction)
     {
-        Flying = false;
+        _targetRB.AddForce(Vector2.right * _horizontalForce * direction);
+
     }
 
     public void Regenerate()
@@ -80,23 +68,8 @@ public class Jetpack : MonoBehaviour
         Energy += energy;
     }
 
-    public void FlyHorizontal(float direction)
-    {
-        _targetRB.AddForce(Vector2.right * _horizontalForce * direction);
-
-    }
     #endregion
 
     #region Private Methods
-    private void DoFly()
-    {
-        if (Energy > 0)
-        {
-            _targetRB.AddForce(Vector2.up * _flyForce);
-            Energy -= _energyFlyingRatio;
-        }
-        else
-            Flying = false;
-    }
     #endregion
 }
