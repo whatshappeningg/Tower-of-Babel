@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour
 {
@@ -54,6 +55,9 @@ public class InputController : MonoBehaviour
             IsFlying = true;
         else
             IsFlying = false;
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+            SceneManager.LoadScene("MainMenu");
 
     }
 
