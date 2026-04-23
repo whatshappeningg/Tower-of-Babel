@@ -27,6 +27,8 @@ public class Jetpack : MonoBehaviour
 
     #region Fields		
     [SerializeField] private InputController _inputController;
+    [SerializeField] private Player _player;
+
     private Rigidbody2D _targetRB;
     [SerializeField] private float _energy;
     [SerializeField] private float _maxEnergy;
@@ -54,7 +56,7 @@ public class Jetpack : MonoBehaviour
 
         //Le quitamos el signo a la velocidad si es negativa.
         //Luego si es menor de 0.1, consideramos que estamos parados y cargamos
-        if (Mathf.Abs(_targetRB.velocity.y) < 0.1f)
+        if (_player._onGround)
             Regenerate();
     }
 

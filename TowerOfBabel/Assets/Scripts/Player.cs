@@ -8,12 +8,12 @@ using System;
 public class Player : MonoBehaviour
 {
     #region Properties
+    public bool _onGround;
     #endregion
 
     #region Fields
     [SerializeField] private InputController _inputController;
     [SerializeField] private float _playerSpeed = 5f;
-    private bool _onGround;
     private Animator _anim;
     private Rigidbody2D _rb;
     private SpriteRenderer _spriteRenderer;
