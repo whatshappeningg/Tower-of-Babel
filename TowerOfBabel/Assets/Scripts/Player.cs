@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         {
             Movement(Direction);
         }
-        else if (NotMoving)
+        else if (NotMoving && _onGround)
         {
             NoMovement();
         }
@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
 
     public void NoMovement()
     {
+        Debug.Log("Velocity change");
         _anim.SetBool("Walking", false);
         _rb.velocity = new Vector2(0, _rb.velocity.y);
     }

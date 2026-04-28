@@ -66,9 +66,9 @@ MonoBehaviour:
   _energy: 0
   _maxEnergy: 100
   _energyFlyingRatio: 0.1
-  _energyRegenerationRatio: 0.5
-  _horizontalForce: 2000
-  _flyForce: 150
+  _energyRegenerationRatio: 0.2
+  _horizontalForce: 3
+  _flyForce: 5
 --- !u!212 &3602852818001509484
 SpriteRenderer:
   m_ObjectHideFlags: 0

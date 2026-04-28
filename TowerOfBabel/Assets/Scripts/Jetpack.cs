@@ -61,16 +61,43 @@ public class Jetpack : MonoBehaviour
         if (Energy > 0)
         {
             if (FlyingHorizontal)
-                _force = (Vector2.up * _flyForce) + (Vector2.right * _horizontalForce * Direction);
+            {
+                Debug.Log("Flying Horizontal: " + Direction * _horizontalForce);
+                _targetRB.velocity = new Vector2(Direction * _horizontalForce, _flyForce);
+            }
+            //_force = (Vector2.up * _flyForce) + (Vector2.right * _horizontalForce * Direction);
 
             else
-                _force = Vector2.up * _flyForce;
+                _targetRB.velocity = new Vector2(_targetRB.velocity.x, _flyForce);
 
-            _targetRB.AddForce(_force);
+            //_force = Vector2.up * _flyForce;
+
+            //_targetRB.AddForce(_force);
 
             Energy -= _energyFlyingRatio;
         }
+
     }
+    // public void FlyUp()
+    // {
+    //     if (Energy > 0)
+    //     {
+    //         float y = _flyForce;
+    //         if (FlyingHorizontal)
+    //             float x = Direction * _horizontalForce;
+    //         else
+    //             float x = _targetRB.velocity.x;
+
+
+
+    //             _targetRB.velocity = new Vector2(x, y);
+    //         {
+    //             _targetRB.velocity = new Vector2(_targetRB.velocity.x, _flyForce);
+    //         }
+
+    //         Energy -= _energyFlyingRatio;
+    //     }
+    // }
 
     public void Regenerate()
     {
