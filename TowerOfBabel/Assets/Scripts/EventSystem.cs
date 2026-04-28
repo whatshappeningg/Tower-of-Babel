@@ -23,9 +23,6 @@ public class EventSystem : MonoBehaviour
 
         _player.OnGround += OnGround;
 
-        _itemHammer.HammerCollision += OnHammerCollision;
-        _itemScroll1.Scroll1Collision += OnScroll1Collision;
-        _itemScroll2.Scroll2Collision += OnScroll2Collision;
     }
 
     #endregion
@@ -74,26 +71,6 @@ public class EventSystem : MonoBehaviour
         _jetpack.FlyingHorizontal = false;
         _jetpack.Regenerate();
     }
-    private void OnHammerCollision()
-    {
-        Debug.Log("Hammer Collision");
-        _jetpack.AddEnergy(_itemHammer.POSITIVE_HEAL);
-    }
-    private void OnScroll1Collision()
-    {
-        Debug.Log("Scroll1 Collision");
-        if (_player.Flying)
-            _jetpack.GetComponent<Rigidbody2D>().AddForce(Vector2.down * _itemScroll1.SCROLL1_FORCE);
-        else
-            if (_jetpack.transform.position.y > 1)
-                _jetpack.transform.Translate(Vector2.down * _itemScroll1.SCROLL1_DOWN_POS);
 
-    }
-    private void OnScroll2Collision()
-    {
-        Debug.Log("Scroll2 Collision");
-        _jetpack.AddEnergy(_itemScroll2.SCROLL2_DAMAGE);
-
-    }
     #endregion
 }

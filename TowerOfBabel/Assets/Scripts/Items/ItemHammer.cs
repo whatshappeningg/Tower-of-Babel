@@ -4,7 +4,6 @@ using System;
 public class ItemHammer : Item
 {
     # region Properties
-    public event Action HammerCollision;
     public int POSITIVE_HEAL = 20;
     #endregion
 
@@ -16,9 +15,9 @@ public class ItemHammer : Item
 
         if (collision.gameObject.tag == "Player")
         {
-            HammerCollision?.Invoke();
-            //Jetpack jetpack = collision.gameObject.GetComponent<Jetpack>();
-            //jetpack.AddEnergy(POSITIVE_HEAL);
+            Jetpack jetpack = collision.gameObject.GetComponent<Jetpack>();
+            jetpack.AddEnergy(POSITIVE_HEAL);
+
             Recolected();
         }
     }

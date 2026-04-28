@@ -4,7 +4,6 @@ using System;
 public class ItemScroll1 : Item
 {
     # region Properties
-    public event Action Scroll1Collision;
     public int SCROLL1_FORCE = 10000;
     public float SCROLL1_DOWN_POS = 2.5f;
 
@@ -18,15 +17,14 @@ public class ItemScroll1 : Item
 
         if (collision.gameObject.tag == "Player")
         {
-            //Jetpack jetpack = collision.gameObject.GetComponent<Jetpack>();
-            //Efecto
-            //if (jetpack.Flying)
-            //jetpack.GetComponent<Rigidbody2D>().AddForce(Vector2.down * ERROR_FORCE);
-            // else
-            //     if (jetpack.transform.position.y > 1)//Para evitar que nos unda en el suelo
-            //         jetpack.transform.Translate(Vector2.down * ERROR_DOWN_POS);
+            Jetpack jetpack = collision.gameObject.GetComponent<Jetpack>();
+            // Efecto
+            if (jetpack.FlyingUp)
+                jetpack.GetComponent<Rigidbody2D>().AddForce(Vector2.down * SCROLL1_FORCE);
+            else
+                if (jetpack.transform.position.y > 1)//Para evitar que nos unda en el suelo
+                    jetpack.transform.Translate(Vector2.down * SCROLL1_DOWN_POS);
 
-            Scroll1Collision?.Invoke();
             Recolected();
         }
     }
