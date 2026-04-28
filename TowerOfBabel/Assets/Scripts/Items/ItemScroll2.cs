@@ -4,7 +4,10 @@ using System;
 public class ItemScroll2 : Item
 {
 
-    const float NOSE_DAMAGE = -20;
+    # region Properties
+    public event Action Scroll2Collision;
+    public int SCROLL2_DAMAGE = -20;
+    #endregion
 
     #region Unity Callbacks
     private void OnCollisionEnter2D(Collision2D collision)
@@ -14,8 +17,9 @@ public class ItemScroll2 : Item
 
         if (collision.gameObject.tag == "Player")
         {
-            Jetpack jetpack = collision.gameObject.GetComponent<Jetpack>();
-            jetpack.AddEnergy(NOSE_DAMAGE);
+            Scroll2Collision?.Invoke();
+            // Jetpack jetpack = collision.gameObject.GetComponent<Jetpack>();
+            // jetpack.AddEnergy(NOSE_DAMAGE);
             Recolected();
         }
     }

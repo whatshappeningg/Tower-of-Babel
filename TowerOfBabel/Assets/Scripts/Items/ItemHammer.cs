@@ -3,10 +3,11 @@ using System;
 
 public class ItemHammer : Item
 {
-    #region Contants
-
-    const float POSITIVE_HEAL = 20;
+    # region Properties
+    public event Action HammerCollision;
+    public int POSITIVE_HEAL = 20;
     #endregion
+
     #region Unity Callbacks
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -15,8 +16,9 @@ public class ItemHammer : Item
 
         if (collision.gameObject.tag == "Player")
         {
-            Jetpack jetpack = collision.gameObject.GetComponent<Jetpack>();
-            jetpack.AddEnergy(POSITIVE_HEAL);
+            HammerCollision?.Invoke();
+            //Jetpack jetpack = collision.gameObject.GetComponent<Jetpack>();
+            //jetpack.AddEnergy(POSITIVE_HEAL);
             Recolected();
         }
     }

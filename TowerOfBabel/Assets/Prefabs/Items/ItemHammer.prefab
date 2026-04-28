@@ -74,7 +74,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 443722398290947365, guid: 9efc094d7a39673448e3e7e2143d3ae9, type: 3}
       insertIndex: 1
-      addedObject: {fileID: 1517976309502757015}
+      addedObject: {fileID: 5881092849993927590}
     - targetCorrespondingSourceObject: {fileID: 443722398290947365, guid: 9efc094d7a39673448e3e7e2143d3ae9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5798830387555366347}
@@ -84,7 +84,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 443722398290947365, guid: 9efc094d7a39673448e3e7e2143d3ae9, type: 3}
   m_PrefabInstance: {fileID: 2981079600442580175}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1517976309502757015
+--- !u!114 &5881092849993927590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 3
   _particles: {fileID: 2470857156511459131, guid: 3c2892966fa87fd4b85d5a53a2e14158, type: 3}
+  POSITIVE_HEAL: 20
 --- !u!60 &5798830387555366347
 PolygonCollider2D:
   m_ObjectHideFlags: 0

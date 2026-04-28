@@ -1,4 +1,6 @@
+using System.Numerics;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Jetpack : MonoBehaviour
@@ -15,7 +17,9 @@ public class Jetpack : MonoBehaviour
             _energy = Mathf.Clamp(value, 0, _maxEnergy);
         }
     }
-    public bool Flying { get; set; }
+    public bool FlyingUp { get; set; }
+    public bool FlyingHorizontal { get; set; }
+    public float Direction { get; set; }
     #endregion
 
     #region Fields		
@@ -26,6 +30,7 @@ public class Jetpack : MonoBehaviour
     [SerializeField] private float _energyRegenerationRatio;
     [SerializeField] private float _horizontalForce;
     [SerializeField] private float _flyForce;
+    private Vector2 _force;
 
     #endregion
 
@@ -39,6 +44,15 @@ public class Jetpack : MonoBehaviour
         Energy = _maxEnergy;
     }
 
+    void FixedUpdate()
+    {
+        if (FlyingUp)
+        {
+            FlyUp();
+        }
+
+    }
+
     #endregion
 
     #region Public Methods
@@ -46,16 +60,16 @@ public class Jetpack : MonoBehaviour
     {
         if (Energy > 0)
         {
-            _targetRB.AddForce(Vector2.up * _flyForce);
+            if (FlyingHorizontal)
+                _force = (Vector2.up * _flyForce) + (Vector2.right * _horizontalForce * Direction);
+
+            else
+                _force = Vector2.up * _flyForce;
+
+            _targetRB.AddForce(_force);
+
             Energy -= _energyFlyingRatio;
         }
-        else
-            Flying = false;
-    }
-    public void FlyHorizontal(float direction)
-    {
-        _targetRB.AddForce(Vector2.right * _horizontalForce * direction);
-
     }
 
     public void Regenerate()

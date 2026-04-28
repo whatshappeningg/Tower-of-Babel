@@ -992,7 +992,7 @@ GameObject:
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1056364105
 Transform:
   m_ObjectHideFlags: 0
@@ -1023,9 +1023,7 @@ MonoBehaviour:
   _minSpawnTime: 1
   _maxSpawnTime: 5
   _spawnList:
-  - {fileID: 7340071042803246603, guid: feace034808b51a4880074d65a63616b, type: 3}
-  - {fileID: 8125583386539682003, guid: c4dcf2e32a705454cb3130528f26be0e, type: 3}
-  - {fileID: 1517976309502757015, guid: f2f4405afb0e02140aa8716f80087f09, type: 3}
+  - {fileID: 5881092849993927590, guid: f2f4405afb0e02140aa8716f80087f09, type: 3}
 --- !u!1 &1131076206
 GameObject:
   m_ObjectHideFlags: 0
@@ -4119,6 +4117,9 @@ MonoBehaviour:
   _inputController: {fileID: 2056445220}
   _jetpack: {fileID: 1633053921}
   _player: {fileID: 1633053927}
+  _itemHammer: {fileID: 5881092849993927590, guid: f2f4405afb0e02140aa8716f80087f09, type: 3}
+  _itemScroll1: {fileID: 7340071042803246603, guid: feace034808b51a4880074d65a63616b, type: 3}
+  _itemScroll2: {fileID: 8125583386539682003, guid: c4dcf2e32a705454cb3130528f26be0e, type: 3}
 --- !u!1 &2079436987
 GameObject:
   m_ObjectHideFlags: 0

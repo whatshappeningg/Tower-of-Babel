@@ -8,7 +8,10 @@ using System;
 public class Player : MonoBehaviour
 {
     #region Properties
-    public bool IsFlying { get; set; }
+    public bool Flying { get; set; }
+    public bool Moving { get; set; }
+    public bool NotMoving { get; set; }
+    public float Direction { get; set; }
     public event Action OnGround;
     #endregion
 
@@ -39,6 +42,19 @@ public class Player : MonoBehaviour
             _anim.SetBool("Flying", false);
         }
     }
+
+    void FixedUpdate()
+    {
+        if (Moving)
+        {
+            Movement(Direction);
+        }
+        else if (NotMoving)
+        {
+            NoMovement();
+        }
+
+    }
     #endregion
 
     #region Public Methods
@@ -55,14 +71,12 @@ public class Player : MonoBehaviour
         _rb.velocity = new Vector2(0, _rb.velocity.y);
     }
 
-    public float ManageDirection(float direction)
+    public void ManageDirection(float direction)
     {
         if (direction < 0)
             _spriteRenderer.flipX = false;
         else if (direction > 0)
             _spriteRenderer.flipX = true;
-
-        return direction;
 
     }
     #endregion
@@ -73,7 +87,7 @@ public class Player : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collision Enter");
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform") && !IsFlying)
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform") && !Flying)
         {
             _onGround = true;
         }
@@ -82,6 +96,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
         {
+            Flying = true;
             _onGround = false;
 
         }

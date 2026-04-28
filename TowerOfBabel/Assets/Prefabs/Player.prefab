@@ -50,8 +50,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d516ab483e4f7942ae70adf7e7b99d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onGround: 0
-  _inputController: {fileID: 0}
   _playerSpeed: 3
 --- !u!114 &861258840144267880
 MonoBehaviour:
@@ -65,14 +63,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44c1664435acf04bb8840b194bc020b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputController: {fileID: 0}
-  _player: {fileID: 2233835494129546363}
   _energy: 0
   _maxEnergy: 100
   _energyFlyingRatio: 0.1
   _energyRegenerationRatio: 0.5
-  _horizontalForce: 20
-  _flyForce: 130
+  _horizontalForce: 2000
+  _flyForce: 150
 --- !u!212 &3602852818001509484
 SpriteRenderer:
   m_ObjectHideFlags: 0

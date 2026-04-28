@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour
     public float Direction { get; set; }
     public event Action IsFlying;
     public event Action IsFlyingHorizontal;
+    public event Action IsNotFlying;
     public event Action IsWalking;
     public event Action IsMoving;
     public event Action IsNotMoving;
@@ -56,7 +57,10 @@ public class InputController : MonoBehaviour
             _isFlying = true;
         }
         else
+        {
+            IsNotFlying?.Invoke();
             _isFlying = false;
+        }
 
         if (Input.GetKeyUp(KeyCode.Escape))
             SceneManager.LoadScene("MainMenu");
