@@ -704,7 +704,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: 0.000000007450581, w: 1}
-  m_LocalPosition: {x: -0.25, y: 1.6399999, z: -10}
+  m_LocalPosition: {x: 0, y: 1.7499999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4418,11 +4418,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 228536580027852894, guid: e8ea729f5aaa5b1489bc2d4a328c72e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 228536580027852894, guid: e8ea729f5aaa5b1489bc2d4a328c72e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 228536580027852894, guid: e8ea729f5aaa5b1489bc2d4a328c72e7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4516,26 +4516,6 @@ PrefabInstance:
     - target: {fileID: 1953665676666013536, guid: 86a004b96690f1e4bb8c6efb7ace9355, type: 3}
       propertyPath: m_Name
       value: Torch
-      objectReference: {fileID: 0}
-    - target: {fileID: 8071826025320715415, guid: 86a004b96690f1e4bb8c6efb7ace9355, type: 3}
-      propertyPath: m_FalloffIntensity
-      value: 0.414
-      objectReference: {fileID: 0}
-    - target: {fileID: 8071826025320715415, guid: 86a004b96690f1e4bb8c6efb7ace9355, type: 3}
-      propertyPath: m_PointLightInnerAngle
-      value: 221.55098
-      objectReference: {fileID: 0}
-    - target: {fileID: 8071826025320715415, guid: 86a004b96690f1e4bb8c6efb7ace9355, type: 3}
-      propertyPath: m_PointLightOuterAngle
-      value: 350.62457
-      objectReference: {fileID: 0}
-    - target: {fileID: 8071826025320715415, guid: 86a004b96690f1e4bb8c6efb7ace9355, type: 3}
-      propertyPath: m_PointLightInnerRadius
-      value: 0.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 8071826025320715415, guid: 86a004b96690f1e4bb8c6efb7ace9355, type: 3}
-      propertyPath: m_PointLightOuterRadius
-      value: 1.46
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
