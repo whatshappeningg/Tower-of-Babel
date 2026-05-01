@@ -3,12 +3,19 @@ using UnityEngine;
 public class EventSystem : MonoBehaviour
 {
     #region Fields
+    [SerializeField] private InGameController _inGameController;
+    [SerializeField] private UIController _uiController;
     [SerializeField] private InputController _inputController;
     [SerializeField] private Jetpack _jetpack;
     [SerializeField] private Player _player;
     [SerializeField] private ItemHammer _itemHammer;
     [SerializeField] private ItemScroll1 _itemScroll1;
     [SerializeField] private ItemScroll2 _itemScroll2;
+    [SerializeField] private PlayerLevelDetector _playerLevelDetector1;
+    [SerializeField] private PlayerLevelDetector _playerLevelDetector2;
+    [SerializeField] private PlayerLevelDetector _playerLevelDetector3;
+    [SerializeField] private PlayerLevelDetector _playerLevelDetector4;
+
     #endregion
 
     #region Unity Callbacks
@@ -22,6 +29,11 @@ public class EventSystem : MonoBehaviour
         _inputController.IsNotMoving += OnNotMoving;
 
         _player.OnGround += OnGround;
+
+        _playerLevelDetector1.OnLevelChange += OnLevelChange;
+        _playerLevelDetector2.OnLevelChange += OnLevelChange;
+        _playerLevelDetector3.OnLevelChange += OnLevelChange;
+        _playerLevelDetector4.OnLevelChange += OnLevelChange;
 
     }
 
@@ -70,6 +82,12 @@ public class EventSystem : MonoBehaviour
         _jetpack.FlyingUp = false;
         _jetpack.FlyingHorizontal = false;
         _jetpack.Regenerate();
+    }
+
+    private void OnLevelChange()
+    {
+        string level = _inGameController.ChangeLevel();
+        _uiController.UpdateLevelText(level);
     }
 
     #endregion
