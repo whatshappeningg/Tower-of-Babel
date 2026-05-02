@@ -68,7 +68,7 @@ public class Jetpack : MonoBehaviour
             //_force = (Vector2.up * _flyForce) + (Vector2.right * _horizontalForce * Direction);
 
             else
-                _targetRB.velocity = new Vector2(_targetRB.velocity.x, _flyForce);
+                _targetRB.velocity = new Vector2(0, _flyForce);
 
             //_force = Vector2.up * _flyForce;
 

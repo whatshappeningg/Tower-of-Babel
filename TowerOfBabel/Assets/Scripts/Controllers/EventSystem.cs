@@ -44,6 +44,7 @@ public class EventSystem : MonoBehaviour
     {
         _player.Flying = true;
         _jetpack.FlyingUp = true;
+
     }
     private void OnFlyHorizontal()
     {
