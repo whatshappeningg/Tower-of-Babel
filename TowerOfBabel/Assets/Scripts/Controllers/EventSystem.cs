@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EventSystem : MonoBehaviour
@@ -8,9 +9,6 @@ public class EventSystem : MonoBehaviour
     [SerializeField] private InputController _inputController;
     [SerializeField] private Jetpack _jetpack;
     [SerializeField] private Player _player;
-    [SerializeField] private ItemHammer _itemHammer;
-    [SerializeField] private ItemScroll1 _itemScroll1;
-    [SerializeField] private ItemScroll2 _itemScroll2;
     [SerializeField] private PlayerLevelDetector _playerLevelDetector1;
     [SerializeField] private PlayerLevelDetector _playerLevelDetector2;
     [SerializeField] private PlayerLevelDetector _playerLevelDetector3;

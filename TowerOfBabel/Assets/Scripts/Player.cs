@@ -81,7 +81,6 @@ public class Player : MonoBehaviour
     }
     public void NoMovement()
     {
-        Debug.Log("Velocity change");
         _anim.SetBool("Walking", false);
         _rb.velocity = new Vector2(0, _rb.velocity.y);
     }
