@@ -64,12 +64,8 @@ public class InputController : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Escape))
             SceneManager.LoadScene("MainMenu");
-
     }
 
-    #endregion
-
-    #region Public Methods
     #endregion
 
     #region Private Methods

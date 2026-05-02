@@ -1,13 +1,9 @@
 using UnityEngine;
-using System;
 using UnityEngine.UI;
 using TMPro;
 
 public class UIController : MonoBehaviour
 {
-    #region Properties
-    #endregion
-
     #region Fields
     [SerializeField] private Jetpack _jetpack;
     [SerializeField] private Slider _energySlider;
@@ -23,6 +19,7 @@ public class UIController : MonoBehaviour
         _textHeight.text = ((int)_jetpack.transform.position.y).ToString();
 
     }
+
     #endregion
 
     #region Public Methods
@@ -33,6 +30,4 @@ public class UIController : MonoBehaviour
 
     #endregion
 
-    #region Private Methods
-    #endregion
 }

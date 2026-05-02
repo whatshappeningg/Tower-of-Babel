@@ -21,5 +21,6 @@ public class InGameController : MonoBehaviour
         _currentLevel++;
         return Levels[_currentLevel];
     }
+
     #endregion
 }

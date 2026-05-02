@@ -1,16 +1,13 @@
 using UnityEngine;
-using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    #region Properties
-    #endregion
-
     #region Fields
     [SerializeField] Button _startGameButton;
     [SerializeField] Button _exitGameButton;
+
     #endregion
 
     #region Unity Callbacks
@@ -20,19 +17,18 @@ public class MainMenuController : MonoBehaviour
         _exitGameButton.onClick.AddListener(ExitGame);
     }
 
-
     #endregion
 
     #region Private Methods
-
     private void ExitGame()
     {
         Application.Quit();
     }
-
     private void StartGame()
     {
         SceneManager.LoadScene("InGame");
     }
+
     #endregion
+
 }

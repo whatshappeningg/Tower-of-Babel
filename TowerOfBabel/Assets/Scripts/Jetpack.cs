@@ -1,4 +1,3 @@
-using System.Numerics;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 
@@ -20,6 +19,7 @@ public class Jetpack : MonoBehaviour
     public bool FlyingUp { get; set; }
     public bool FlyingHorizontal { get; set; }
     public float Direction { get; set; }
+
     #endregion
 
     #region Fields		
@@ -30,7 +30,6 @@ public class Jetpack : MonoBehaviour
     [SerializeField] private float _energyRegenerationRatio;
     [SerializeField] private float _horizontalForce;
     [SerializeField] private float _flyForce;
-    private Vector2 _force;
 
     #endregion
 
@@ -43,14 +42,12 @@ public class Jetpack : MonoBehaviour
     {
         Energy = _maxEnergy;
     }
-
     void FixedUpdate()
     {
         if (FlyingUp)
         {
             FlyUp();
         }
-
     }
 
     #endregion
@@ -62,48 +59,18 @@ public class Jetpack : MonoBehaviour
         {
             if (FlyingHorizontal)
             {
-                Debug.Log("Flying Horizontal: " + Direction * _horizontalForce);
                 _targetRB.velocity = new Vector2(Direction * _horizontalForce, _flyForce);
             }
-            //_force = (Vector2.up * _flyForce) + (Vector2.right * _horizontalForce * Direction);
-
             else
                 _targetRB.velocity = new Vector2(0, _flyForce);
 
-            //_force = Vector2.up * _flyForce;
-
-            //_targetRB.AddForce(_force);
-
             Energy -= _energyFlyingRatio;
         }
-
     }
-    // public void FlyUp()
-    // {
-    //     if (Energy > 0)
-    //     {
-    //         float y = _flyForce;
-    //         if (FlyingHorizontal)
-    //             float x = Direction * _horizontalForce;
-    //         else
-    //             float x = _targetRB.velocity.x;
-
-
-
-    //             _targetRB.velocity = new Vector2(x, y);
-    //         {
-    //             _targetRB.velocity = new Vector2(_targetRB.velocity.x, _flyForce);
-    //         }
-
-    //         Energy -= _energyFlyingRatio;
-    //     }
-    // }
-
     public void Regenerate()
     {
         Energy += _energyRegenerationRatio;
     }
-
     public void AddEnergy(float energy)
     {
         Energy += energy;
@@ -111,6 +78,4 @@ public class Jetpack : MonoBehaviour
 
     #endregion
 
-    #region Private Methods
-    #endregion
 }

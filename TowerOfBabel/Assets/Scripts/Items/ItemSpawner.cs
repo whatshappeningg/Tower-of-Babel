@@ -1,19 +1,16 @@
 using UnityEngine;
-using System;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
 public class ItemSpawner : MonoBehaviour
 {
-    #region Properties
-    #endregion
-
     #region Fields	
     [SerializeField] private float _minSpawnTime = 1;
     [SerializeField] private float _maxSpawnTime = 5;
     [SerializeField] private List<Item> _spawnList;
     private float _nextSpawnTime;
     private float _cronoTime = 0;
+
     #endregion
 
     #region Unity Callbacks
@@ -21,7 +18,6 @@ public class ItemSpawner : MonoBehaviour
     {
         ResetTime();
     }
-
     void Update()
     {
         _cronoTime += Time.deltaTime;
@@ -34,16 +30,12 @@ public class ItemSpawner : MonoBehaviour
 
     #endregion
 
-    #region Public Methods
-    #endregion
-
     #region Private Methods
     private void ResetTime()
     {
         _cronoTime = 0;
         _nextSpawnTime = Random.Range(_minSpawnTime, _maxSpawnTime);
     }
-
     private void SpawnItem()
     {
         //Random object from a list
@@ -64,5 +56,7 @@ public class ItemSpawner : MonoBehaviour
         if (_maxSpawnTime > _minSpawnTime)
             _maxSpawnTime -= 0.1f;
     }
+
     #endregion
+
 }

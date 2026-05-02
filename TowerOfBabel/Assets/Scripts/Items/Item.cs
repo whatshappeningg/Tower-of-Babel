@@ -1,5 +1,4 @@
 using UnityEngine;
-using System;
 
 public class Item : MonoBehaviour, IRecolectable
 {
@@ -11,14 +10,17 @@ public class Item : MonoBehaviour, IRecolectable
         Scroll2,
         Hammer
     }
+
     #endregion
 
     #region Properties
     [field: SerializeField] public ItemTypes Type { get; set; }
+
     #endregion
 
     #region Fields
     [SerializeField] private GameObject _particles;
+
     #endregion
 
     #region Public Methods
@@ -27,6 +29,7 @@ public class Item : MonoBehaviour, IRecolectable
         Destroy(gameObject);
         CreateParticles();
     }
+
     #endregion
 
     #region Private Methods
@@ -34,5 +37,6 @@ public class Item : MonoBehaviour, IRecolectable
     {
         Instantiate(_particles, transform.position, Quaternion.identity);
     }
+
     #endregion
 }

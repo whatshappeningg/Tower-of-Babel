@@ -1,9 +1,8 @@
 using UnityEngine;
-using System;
 
 public class ItemScroll1 : Item
 {
-    # region Properties
+    #region Properties
     public int SCROLL1_FORCE = 20000;
     public float SCROLL1_DOWN_POS = 2.5f;
 
@@ -28,6 +27,7 @@ public class ItemScroll1 : Item
             Recolected();
         }
     }
+
     #endregion
 
 }

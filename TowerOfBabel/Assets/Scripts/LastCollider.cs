@@ -4,6 +4,7 @@ public class LastCollider : MonoBehaviour
 {
     #region Fields
     private Jetpack _jetpack;
+
     #endregion
 
     #region Unity Callbacks

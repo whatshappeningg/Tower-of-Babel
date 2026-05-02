@@ -52,13 +52,11 @@ public class EventSystem : MonoBehaviour
         _jetpack.FlyingUp = false;
         _jetpack.FlyingHorizontal = true;
     }
-
     private void OnNotFlying()
     {
         _jetpack.FlyingUp = false;
         _jetpack.FlyingHorizontal = false;
     }
-
     private void OnWalking()
     {
         _player.Direction = _inputController.Direction;
@@ -77,14 +75,12 @@ public class EventSystem : MonoBehaviour
         _player.Moving = false;
         _player.NotMoving = true;
     }
-
     private void OnGround()
     {
         _jetpack.FlyingUp = false;
         _jetpack.FlyingHorizontal = false;
         _jetpack.Regenerate();
     }
-
     private void OnLevelChange()
     {
         string level = _inGameController.ChangeLevel();

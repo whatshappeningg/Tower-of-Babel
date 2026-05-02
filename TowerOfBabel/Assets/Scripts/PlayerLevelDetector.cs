@@ -5,6 +5,7 @@ public class PlayerLevelDetector : MonoBehaviour
 {
     #region Properties
     public event Action OnLevelChange;
+
     #endregion
 
     #region Unity Callbacks

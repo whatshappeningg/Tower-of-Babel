@@ -1,10 +1,10 @@
 using UnityEngine;
-using System;
 
 public class ItemHammer : Item
 {
-    # region Properties
+    #region Properties
     public int POSITIVE_HEAL = 20;
+
     #endregion
 
     #region Unity Callbacks
@@ -21,6 +21,7 @@ public class ItemHammer : Item
             Recolected();
         }
     }
+
     #endregion
 
 }
