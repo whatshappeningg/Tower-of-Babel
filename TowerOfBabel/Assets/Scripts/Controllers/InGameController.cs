@@ -10,6 +10,9 @@ public class InGameController : MonoBehaviour
     #region Unity Callbacks
     void Awake()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         _currentLevel = 0;
     }
 

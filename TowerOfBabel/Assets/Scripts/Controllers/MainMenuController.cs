@@ -13,6 +13,9 @@ public class MainMenuController : MonoBehaviour
     #region Unity Callbacks
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         _startGameButton.onClick.AddListener(StartGame);
         _exitGameButton.onClick.AddListener(ExitGame);
     }
