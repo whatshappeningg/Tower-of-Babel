@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4667846863820129433}
   - component: {fileID: 8253617732735167592}
   - component: {fileID: 1530295083208766355}
-  - component: {fileID: 1360346565328739939}
+  - component: {fileID: 9051105790335145558}
   m_Layer: 0
-  m_Name: HammerParticleSystem
+  m_Name: Scroll2ParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288,8 +288,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.7
-      minScalar: 0.3
+      scalar: 1
+      minScalar: 0.75
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1430,12 +1430,12 @@ ParticleSystem:
     enabled: 1
     mode: 1
     timeMode: 0
-    fps: 30
+    fps: 10
     frameOverTime:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0.9999
-      minScalar: 0.9999
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1537,7 +1537,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    speedRange: {x: 0, y: 1}
+    speedRange: {x: 0, y: 15}
     tilesX: 1
     tilesY: 1
     animationType: 0
@@ -1546,7 +1546,9 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -5266218592025656499, guid: cedaf9704aa4e8c498cff6e0c91d9d04, type: 3}
+    - sprite: {fileID: -1344176758, guid: b631ed305dfd43c488e0f8edf5c829bc, type: 3}
+    - sprite: {fileID: -1122954699, guid: b631ed305dfd43c488e0f8edf5c829bc, type: 3}
+    - sprite: {fileID: -427312282, guid: b631ed305dfd43c488e0f8edf5c829bc, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4889,7 +4891,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!82 &1360346565328739939
+--- !u!82 &9051105790335145558
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4899,9 +4901,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5385f15c335f45b4d8708bf5a7d52197, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8e535fe37aa87084db3e49e7c62507ff, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.766
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

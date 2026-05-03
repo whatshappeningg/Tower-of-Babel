@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 2
-  _particles: {fileID: 2470857156511459131, guid: a14a9673d41159144b92551ae375f35e, type: 3}
+  _particles: {fileID: 2470857156511459131, guid: eed3e7d6167792743b2814213dbc4808, type: 3}
   SCROLL2_DAMAGE: -20
 --- !u!70 &8398483720470999718
 CapsuleCollider2D:
