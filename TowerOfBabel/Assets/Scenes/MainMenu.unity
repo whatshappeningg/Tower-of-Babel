@@ -1474,7 +1474,7 @@ AudioSource:
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 50
@@ -5633,7 +5633,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1754330595}
-  - component: {fileID: 1754330594}
   - component: {fileID: 1754330596}
   - component: {fileID: 1754330593}
   - component: {fileID: 1754330592}
@@ -5708,20 +5707,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1754330594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1754330590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 839323b029d4f944199ded166d1e345b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startGameButton: {fileID: 1933858953}
-  _exitGameButton: {fileID: 855562784}
 --- !u!224 &1754330595
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5752,7 +5737,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754330590}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45f18ee5918b8a34b9114a470223ee5f, type: 3}
   m_Name: 
@@ -6857,6 +6842,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1920864781}
+  - component: {fileID: 1920864782}
   m_Layer: 0
   m_Name: Main Menu Panel
   m_TagString: Untagged
@@ -6885,6 +6871,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1920864782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920864780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 839323b029d4f944199ded166d1e345b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playButton: {fileID: 1662755914}
+  _settingsButton: {fileID: 1387606401}
+  _soundSlider: {fileID: 823720981}
+  _exitGameButton: {fileID: 2063911679}
+  _settingsPanel: {fileID: 810106365}
 --- !u!1 &1933858949
 GameObject:
   m_ObjectHideFlags: 0
@@ -7256,7 +7259,7 @@ GameObject:
   - component: {fileID: 2063911680}
   - component: {fileID: 2063911679}
   m_Layer: 5
-  m_Name: Settings Button
+  m_Name: Exit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

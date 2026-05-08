@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 public class MainMenuController : MonoBehaviour
 {
     #region Fields
-    [SerializeField] Button _startGameButton;
+    [Header("Configuration")]
+    [SerializeField] Button _playButton;
+    [SerializeField] Button _settingsButton;
+    [SerializeField] Slider _soundSlider;
     [SerializeField] Button _exitGameButton;
+
+    [Header("Panels")]
+    [SerializeField] GameObject _settingsPanel;
+
 
     #endregion
 
@@ -16,8 +23,11 @@ public class MainMenuController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        _startGameButton.onClick.AddListener(StartGame);
+        _playButton.onClick.AddListener(StartGame);
+        _settingsButton.onClick.AddListener(OpenSettings);
         _exitGameButton.onClick.AddListener(ExitGame);
+
+        _soundSlider.value = AudioListener.volume;
     }
 
     #endregion
@@ -31,7 +41,11 @@ public class MainMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("InGame");
     }
-
+    private void OpenSettings()
+    {
+        _settingsPanel.SetActive(true);
+        gameObject.SetActive(false);
+    }
     #endregion
 
 }
