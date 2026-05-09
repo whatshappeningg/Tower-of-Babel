@@ -19,9 +19,13 @@ public class InGameController : MonoBehaviour
     #endregion
 
     #region Public Methods
-    public string ChangeLevel()
+    public string ChangeLevel(bool upDown)
     {
-        _currentLevel++;
+        if (upDown && _currentLevel < Levels.Length - 1)
+            _currentLevel++;
+        else if (!upDown && _currentLevel > 0)
+            _currentLevel--;
+
         return Levels[_currentLevel];
     }
 

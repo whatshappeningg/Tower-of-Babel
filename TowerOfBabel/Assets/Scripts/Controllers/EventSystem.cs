@@ -9,10 +9,14 @@ public class EventSystem : MonoBehaviour
     [SerializeField] private InputController _inputController;
     [SerializeField] private Jetpack _jetpack;
     [SerializeField] private Player _player;
-    [SerializeField] private PlayerLevelDetector _playerLevelDetector1;
-    [SerializeField] private PlayerLevelDetector _playerLevelDetector2;
-    [SerializeField] private PlayerLevelDetector _playerLevelDetector3;
-    [SerializeField] private PlayerLevelDetector _playerLevelDetector4;
+    [SerializeField] private PlayerLevelDetectorUp _playerLevelDetectorUp1;
+    [SerializeField] private PlayerLevelDetectorUp _playerLevelDetectorUp2;
+    [SerializeField] private PlayerLevelDetectorUp _playerLevelDetectorUp3;
+    [SerializeField] private PlayerLevelDetectorUp _playerLevelDetectorUp4;
+    [SerializeField] private PlayerLevelDetectorDown _playerLevelDetectorDown1;
+    [SerializeField] private PlayerLevelDetectorDown _playerLevelDetectorDown2;
+    [SerializeField] private PlayerLevelDetectorDown _playerLevelDetectorDown3;
+    [SerializeField] private PlayerLevelDetectorDown _playerLevelDetectorDown4;
 
     #endregion
 
@@ -28,10 +32,15 @@ public class EventSystem : MonoBehaviour
 
         _player.OnGround += OnGround;
 
-        _playerLevelDetector1.OnLevelChange += OnLevelChange;
-        _playerLevelDetector2.OnLevelChange += OnLevelChange;
-        _playerLevelDetector3.OnLevelChange += OnLevelChange;
-        _playerLevelDetector4.OnLevelChange += OnLevelChange;
+        _playerLevelDetectorUp1.OnLevelChange += () => OnLevelChange(true);
+        _playerLevelDetectorUp2.OnLevelChange += () => OnLevelChange(true);
+        _playerLevelDetectorUp3.OnLevelChange += () => OnLevelChange(true);
+        _playerLevelDetectorUp4.OnLevelChange += () => OnLevelChange(true);
+
+        _playerLevelDetectorDown1.OnLevelChange += () => OnLevelChange(false);
+        _playerLevelDetectorDown2.OnLevelChange += () => OnLevelChange(false);
+        _playerLevelDetectorDown3.OnLevelChange += () => OnLevelChange(false);
+        _playerLevelDetectorDown4.OnLevelChange += () => OnLevelChange(false);
 
     }
 
@@ -79,9 +88,9 @@ public class EventSystem : MonoBehaviour
         _jetpack.FlyingHorizontal = false;
         _jetpack.Regenerate();
     }
-    private void OnLevelChange()
+    private void OnLevelChange(bool upDown)
     {
-        string level = _inGameController.ChangeLevel();
+        string level = _inGameController.ChangeLevel(upDown);
         _uiController.UpdateLevelText(level);
     }
 

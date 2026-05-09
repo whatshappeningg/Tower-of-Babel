@@ -1,8 +1,13 @@
 using UnityEngine;
 using System;
 
-public class PlayerLevelDetector : MonoBehaviour
+public class PlayerLevelDetectorDown : MonoBehaviour
 {
+    #region Fields
+    [SerializeField] private EdgeCollider2D _edgeColliderUp;
+
+    #endregion
+
     #region Properties
     public event Action OnLevelChange;
 
@@ -13,8 +18,9 @@ public class PlayerLevelDetector : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GetComponentInParent<BoxCollider2D>().enabled = true;
+            GetComponentInParent<BoxCollider2D>().enabled = false;
             GetComponent<EdgeCollider2D>().enabled = false;
+            _edgeColliderUp.enabled = true;
 
             OnLevelChange?.Invoke();
         }
