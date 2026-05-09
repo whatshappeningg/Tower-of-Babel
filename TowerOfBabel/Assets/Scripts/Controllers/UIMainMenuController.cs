@@ -8,7 +8,7 @@ public class MainMenuController : MonoBehaviour
     [Header("Configuration")]
     [SerializeField] Button _playButton;
     [SerializeField] Button _settingsButton;
-    [SerializeField] Slider _soundSlider;
+    [SerializeField] Slider _volumeSlider;
     [SerializeField] Button _exitGameButton;
 
     [Header("Panels")]
@@ -22,17 +22,22 @@ public class MainMenuController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Initialize();
 
         _playButton.onClick.AddListener(StartGame);
         _settingsButton.onClick.AddListener(OpenSettings);
         _exitGameButton.onClick.AddListener(ExitGame);
 
-        _soundSlider.value = AudioListener.volume;
+        _volumeSlider.onValueChanged.AddListener(SetVolume);
     }
 
     #endregion
 
     #region Private Methods
+    private void Initialize()
+    {
+        _volumeSlider.value = AudioListener.volume;
+    }
     private void ExitGame()
     {
         Application.Quit();
@@ -46,6 +51,11 @@ public class MainMenuController : MonoBehaviour
         _settingsPanel.SetActive(true);
         gameObject.SetActive(false);
     }
+    private void SetVolume(float volume)
+    {
+        AudioListener.volume = volume;
+    }
+
     #endregion
 
 }

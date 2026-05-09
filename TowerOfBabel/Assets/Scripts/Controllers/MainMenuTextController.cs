@@ -4,20 +4,23 @@ using TMPro;
 public class MainMenuTextController : MonoBehaviour
 {
     #region Fields
-    private string[] StartGameText = new string[] { "Start game", "Spiel starten", "Ludum incipe", "Avvia il gioco" };
-    private string[] ExitGameText = new string[] { "Exit game", "Spiel beenden", "Ludum exi", "Esci dal gioco" };
-    [SerializeField] private TextMeshProUGUI _startGameText;
-    [SerializeField] private TextMeshProUGUI _exitGameText;
+    private string[] MenuText = new string[] { "Menu", "Menú", "Menu", "Menü" };
+    private string[] PlayText = new string[] { "Play", "Jugar", "Gioca", "Spielen" };
+    private string[] SettingsText = new string[] { "Settings", "Configuración", "Impostazioni", "Einstellungen" };
+    [SerializeField] private TextMeshProUGUI _menuText;
+    [SerializeField] private TextMeshProUGUI _playText;
+    [SerializeField] private TextMeshProUGUI _settingsText;
 
     #endregion
 
     #region Unity Callbacks
     void Start()
     {
-        int languageIndex = Random.Range(0, StartGameText.Length);
+        int languageIndex = Random.Range(0, PlayText.Length);
 
-        _startGameText.text = StartGameText[languageIndex];
-        _exitGameText.text = ExitGameText[languageIndex];
+        _menuText.text = MenuText[languageIndex];
+        _playText.text = PlayText[languageIndex];
+        _settingsText.text = SettingsText[languageIndex];
     }
 
     #endregion

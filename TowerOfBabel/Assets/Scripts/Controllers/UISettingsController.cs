@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class UISettings : MonoBehaviour
+public class UISettingsController : MonoBehaviour
 {
     #region Fields
     [Header("Configuration")]
