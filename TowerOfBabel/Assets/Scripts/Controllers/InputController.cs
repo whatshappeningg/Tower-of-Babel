@@ -53,6 +53,7 @@ public class InputController : MonoBehaviour
         // Vertical Movement
         if (Input.GetAxis("Vertical") > 0)
         {
+            // Debug.LogError("Vertical axis: " + Input.GetAxis("Vertical"));
             IsFlying?.Invoke();
             _isFlying = true;
         }

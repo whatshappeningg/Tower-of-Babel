@@ -24,12 +24,12 @@ public class Jetpack : MonoBehaviour
 
     #region Fields		
     private Rigidbody2D _targetRB;
-    [SerializeField] private float _energy;
-    [SerializeField] private float _maxEnergy;
-    [SerializeField] private float _energyFlyingRatio;
-    [SerializeField] private float _energyRegenerationRatio;
-    [SerializeField] private float _horizontalForce;
-    [SerializeField] private float _flyForce;
+    private float _energy;
+    private float _maxEnergy = 100f;
+    private float _energyFlyingRatio = 0.2f;
+    private float _energyRegenerationRatio = 0.1f;
+    private float _horizontalForce = 3f;
+    private float _flyForce = 5f;
 
     #endregion
 
@@ -41,12 +41,16 @@ public class Jetpack : MonoBehaviour
     void Start()
     {
         Energy = _maxEnergy;
+        Debug.LogError("Hello!");
+
     }
     void FixedUpdate()
     {
         if (FlyingUp)
         {
+            Debug.LogError("Flying up: " + _targetRB.velocity);
             FlyUp();
+            // _targetRB.velocity = new Vector2(0, 5f);
         }
     }
 

@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Fields
-    [SerializeField] private float _playerSpeed = 5f;
+    private float _playerSpeed = 3f;
     private Animator _anim;
     private Rigidbody2D _rb;
     private SpriteRenderer _spriteRenderer;
