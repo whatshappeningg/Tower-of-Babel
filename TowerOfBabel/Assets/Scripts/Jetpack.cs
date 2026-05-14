@@ -41,16 +41,12 @@ public class Jetpack : MonoBehaviour
     void Start()
     {
         Energy = _maxEnergy;
-        Debug.LogError("Hello!");
-
     }
     void FixedUpdate()
     {
         if (FlyingUp)
         {
-            Debug.LogError("Flying up: " + _targetRB.velocity);
             FlyUp();
-            // _targetRB.velocity = new Vector2(0, 5f);
         }
     }
 

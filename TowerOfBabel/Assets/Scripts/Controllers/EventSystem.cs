@@ -49,7 +49,6 @@ public class EventSystem : MonoBehaviour
     #region Private Methods
     private void OnFly()
     {
-        Debug.LogError("Flying: " + _jetpack.Energy);
         _player.Flying = true;
         _jetpack.FlyingUp = true;
 

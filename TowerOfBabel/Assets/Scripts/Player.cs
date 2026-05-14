@@ -32,9 +32,7 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    // void Update()
-    // {
-    // }
+
     void FixedUpdate()
     {
         if (!_onGround)
