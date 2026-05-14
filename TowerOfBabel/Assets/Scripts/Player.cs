@@ -32,7 +32,10 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    void Update()
+    // void Update()
+    // {
+    // }
+    void FixedUpdate()
     {
         if (!_onGround)
             _anim.SetBool("Flying", true);
@@ -41,9 +44,7 @@ public class Player : MonoBehaviour
             OnGround?.Invoke();
             _anim.SetBool("Flying", false);
         }
-    }
-    void FixedUpdate()
-    {
+
         if (Moving)
         {
             Movement(Direction);
