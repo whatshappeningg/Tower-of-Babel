@@ -27,7 +27,8 @@ Pero, cuando la relación acción-reacción es más bien directa (como los efect
  
 ### Estética
 - Se ha cambiado por completo el arte y la [narrativa](#Narrativa).
-- La apariencia, partículas y sonido de los items ha sido modificada por completo. 
+- La apariencia, partículas y sonido de los items ha sido modificada por completo.
+- Se ha añadido un menú principal.
 - Se ha cambiado la música y añadido al menú principal.
 
 
@@ -63,6 +64,20 @@ De ahí el origen de los idiomas y del esparcimiento de la humanidad por la Tier
 Cada partida del juego es un intento de Nimrod de alcanzar lo más alto de la torre, movido por su fe. En su camino se encontrará con **pergaminos escritos** en lenguas que no conoce que dificultarán su ascenso. También hallará **martillos** que le ayudarán a seguir subiendo.  
   
 En contraposición con el relato original, existe la posibilidad de alcanzar el cielo, ganando el juego.
+
+## Modo de juego  
+**El objetivo es llegar a lo más alto de la torre.**  
+  
+En la escena del juego, arriba a la derecha se encunetra la barra de energía, y a la izquierda el nivel actual y un contador de altura.  
+  
+Para mover al player se usan las teclas de movimiento (``WASD`` o las flechas). Mientras se asciende la barra de energía disminuirá poco a poco. Si se agota el player ya no podrá volar. Al posarse sobre una superficie la energía se regenerará.  
+
+Los items caen desde arriba, rebotando en las superficies. Al chocar contra el player o algún suelo de check point, el item se destruirá.
+
+Los efectos de los items son:  
+- Martillo: Suma 20 de energía.
+- Pergamino azul: Resta 20 de energía.
+- Pergamino rojo: Impulsa al player hacia abajo.
 
 
 ---
